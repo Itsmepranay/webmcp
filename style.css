@@ -1,0 +1,114 @@
+:root {
+  --bg: #f6f5f2;
+  --card: #ffffff;
+  --text: #1f1f1f;
+  --muted: #6b6b6b;
+  --border: #e3e1dc;
+  --accent: #c2410c;
+  --high: #b91c1c;
+  --low: #4b7a4b;
+}
+
+[data-theme="dark"] {
+  --bg: #161616;
+  --card: #222222;
+  --text: #ededed;
+  --muted: #9a9a9a;
+  --border: #333333;
+  --accent: #fb923c;
+  --high: #f87171;
+  --low: #86b886;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+header, main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+header { padding-top: 32px; }
+h1 { margin: 0 0 4px; font-size: 1.75rem; }
+h2 { margin: 0 0 12px; font-size: 1.05rem; }
+
+.status { margin: 0 0 24px; font-size: 0.875rem; color: var(--muted); }
+.status.on { color: var(--low); }
+.status.off { color: var(--high); }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.row { display: flex; justify-content: space-between; align-items: baseline; }
+.muted { color: var(--muted); font-size: 0.875rem; }
+
+form { display: flex; gap: 8px; flex-wrap: wrap; }
+
+input, select, button {
+  font: inherit;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+}
+
+input { flex: 1; min-width: 160px; }
+
+button {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  cursor: pointer;
+}
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+#task-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+}
+
+#task-list li:first-child { border-top: 0; }
+#task-list li.done .title { text-decoration: line-through; color: var(--muted); }
+#task-list .title { flex: 1; }
+#task-list .id { color: var(--muted); font-size: 0.75rem; font-family: ui-monospace, monospace; }
+
+.tag { font-size: 0.75rem; padding: 1px 8px; border-radius: 999px; border: 1px solid currentColor; }
+.tag.high { color: var(--high); }
+.tag.normal { color: var(--muted); }
+.tag.low { color: var(--low); }
+
+.delete {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  padding: 2px 6px;
+}
+.delete:hover { color: var(--high); }
+
+.log {
+  margin: 0;
+  padding-left: 20px;
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  max-height: 200px;
+  overflow-y: auto;
+}
